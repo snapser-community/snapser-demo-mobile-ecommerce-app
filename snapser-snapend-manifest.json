@@ -1,0 +1,539 @@
+{
+  "version": "v1",
+  "id": "xsn045r1",
+  "name": "my-dev-cluster",
+  "environment": "DEVELOPMENT",
+  "service_definitions": [
+    {
+      "id": "auth",
+      "language": "go",
+      "version": "v1.0.0",
+      "author_id": "snapser",
+      "category": "SNAPSER",
+      "subcategory": "SERVICE",
+      "data_dependencies": [
+        {
+          "type": "POSTGRES",
+          "postgres": {
+            "database": "auth"
+          }
+        },
+        {
+          "type": "POSTGRES",
+          "postgres": {
+            "database": "auth_settings"
+          }
+        },
+        {
+          "type": "REDIS",
+          "redis": {}
+        }
+      ]
+    },
+    {
+      "id": "inventory",
+      "language": "go",
+      "version": "v1.0.0",
+      "author_id": "snapser",
+      "category": "SNAPSER",
+      "subcategory": "SERVICE",
+      "data_dependencies": [
+        {
+          "type": "POSTGRES",
+          "postgres": {
+            "database": "inventory_settings"
+          }
+        },
+        {
+          "type": "REDIS",
+          "redis": {}
+        },
+        {
+          "type": "COUCHBASE",
+          "couchbase": {}
+        }
+      ]
+    },
+    {
+      "id": "profiles",
+      "language": "go",
+      "version": "v1.0.0",
+      "author_id": "snapser",
+      "category": "SNAPSER",
+      "subcategory": "SERVICE",
+      "data_dependencies": [
+        {
+          "type": "POSTGRES",
+          "postgres": {
+            "database": "profiles"
+          }
+        },
+        {
+          "type": "POSTGRES",
+          "postgres": {
+            "database": "profiles_settings"
+          }
+        },
+        {
+          "type": "REDIS",
+          "redis": {}
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "language": "go",
+      "version": "v1.0.0",
+      "author_id": "snapser",
+      "category": "SNAPSER",
+      "subcategory": "SERVICE",
+      "data_dependencies": [
+        {
+          "type": "POSTGRES",
+          "postgres": {
+            "database": "storage_settings"
+          }
+        },
+        {
+          "type": "COUCHBASE",
+          "couchbase": {}
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "id": "auth",
+      "data": {
+        "dev": {
+          "anon": {
+            "enabled": true
+          },
+          "api_keys": [],
+          "app_auth": null,
+          "app_verify": null,
+          "apple": null,
+          "disable_user_creation": false,
+          "discord": null,
+          "email": null,
+          "email_password": null,
+          "epic": null,
+          "facebook": null,
+          "fixed_rate_limiter_settings": [
+            {
+              "allow_list": [],
+              "deny_list": [],
+              "duration_in_seconds": 60,
+              "limit": 5,
+              "lockout_duration_in_seconds": 60,
+              "type": "email_login"
+            },
+            {
+              "allow_list": [],
+              "deny_list": [],
+              "duration_in_seconds": 60,
+              "limit": 5,
+              "lockout_duration_in_seconds": 60,
+              "type": "email_verification"
+            },
+            {
+              "allow_list": [],
+              "deny_list": [],
+              "duration_in_seconds": 60,
+              "limit": 5,
+              "lockout_duration_in_seconds": 60,
+              "type": "account_recovery"
+            }
+          ],
+          "google": null,
+          "password": null,
+          "session_inactivity_timeout": 604800,
+          "session_token_validity": 2592000,
+          "single_session_per_user": false,
+          "steam": null,
+          "user_auth_restrictions": [],
+          "username_password": {
+            "enabled": true,
+            "password_regex": "^[\\s\\S]{5,64}$"
+          },
+          "x": null,
+          "xbox": null
+        },
+        "email_templates": [],
+        "prod": {
+          "anon": null,
+          "api_keys": [],
+          "app_auth": null,
+          "app_verify": null,
+          "apple": null,
+          "disable_user_creation": false,
+          "discord": null,
+          "email": null,
+          "email_password": null,
+          "epic": null,
+          "facebook": null,
+          "fixed_rate_limiter_settings": [
+            {
+              "allow_list": [],
+              "deny_list": [],
+              "duration_in_seconds": 60,
+              "limit": 5,
+              "lockout_duration_in_seconds": 60,
+              "type": "email_login"
+            },
+            {
+              "allow_list": [],
+              "deny_list": [],
+              "duration_in_seconds": 60,
+              "limit": 5,
+              "lockout_duration_in_seconds": 60,
+              "type": "email_verification"
+            },
+            {
+              "allow_list": [],
+              "deny_list": [],
+              "duration_in_seconds": 60,
+              "limit": 5,
+              "lockout_duration_in_seconds": 60,
+              "type": "account_recovery"
+            }
+          ],
+          "google": null,
+          "password": null,
+          "session_inactivity_timeout": 604800,
+          "session_token_validity": 2592000,
+          "single_session_per_user": false,
+          "steam": null,
+          "user_auth_restrictions": [],
+          "username_password": null,
+          "x": null,
+          "xbox": null
+        },
+        "stage": {
+          "anon": null,
+          "api_keys": [],
+          "app_auth": null,
+          "app_verify": null,
+          "apple": null,
+          "disable_user_creation": false,
+          "discord": null,
+          "email": null,
+          "email_password": null,
+          "epic": null,
+          "facebook": null,
+          "fixed_rate_limiter_settings": [
+            {
+              "allow_list": [],
+              "deny_list": [],
+              "duration_in_seconds": 60,
+              "limit": 5,
+              "lockout_duration_in_seconds": 60,
+              "type": "email_login"
+            },
+            {
+              "allow_list": [],
+              "deny_list": [],
+              "duration_in_seconds": 60,
+              "limit": 5,
+              "lockout_duration_in_seconds": 60,
+              "type": "email_verification"
+            },
+            {
+              "allow_list": [],
+              "deny_list": [],
+              "duration_in_seconds": 60,
+              "limit": 5,
+              "lockout_duration_in_seconds": 60,
+              "type": "account_recovery"
+            }
+          ],
+          "google": null,
+          "password": null,
+          "session_inactivity_timeout": 604800,
+          "session_token_validity": 2592000,
+          "single_session_per_user": false,
+          "steam": null,
+          "user_auth_restrictions": [],
+          "username_password": null,
+          "x": null,
+          "xbox": null
+        }
+      },
+      "version": "v1.0.0",
+      "exported_at": "1757449396"
+    },
+    {
+      "id": "inventory",
+      "data": {
+        "catalog_items": [
+          {
+            "class_name": "shoes",
+            "consumable": null,
+            "container": null,
+            "description": "Iconic silhouette with premium materials",
+            "display_name": "Dunk Low",
+            "metadata": {
+              "images": [
+                "https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=400"
+              ],
+              "price": 100,
+              "rating": "4.9"
+            },
+            "name": "shoe_5",
+            "purchasable": {
+              "settings": []
+            },
+            "stackable": false,
+            "sub_inventory": {
+              "is_sub_inventory": false
+            },
+            "tags": [
+              "basketball"
+            ],
+            "tradable": false,
+            "ttl": 0
+          },
+          {
+            "class_name": "shoes",
+            "consumable": null,
+            "container": null,
+            "description": "Reliable running companion with Zoom Air",
+            "display_name": "Zoom Pegasus",
+            "metadata": {
+              "images": [
+                "https://images.pexels.com/photos/1598508/pexels-photo-1598508.jpeg?auto=compress&cs=tinysrgb&w=400"
+              ],
+              "price": 120,
+              "rating": "4.8"
+            },
+            "name": "shoe_4",
+            "purchasable": {
+              "settings": []
+            },
+            "stackable": false,
+            "sub_inventory": {
+              "is_sub_inventory": false
+            },
+            "tags": [
+              "running"
+            ],
+            "tradable": false,
+            "ttl": 0
+          },
+          {
+            "class_name": "shoes",
+            "consumable": null,
+            "container": null,
+            "description": "Vintage basketball style meets modern comfort",
+            "display_name": "Blazer Mid",
+            "metadata": {
+              "images": [
+                "https://images.pexels.com/photos/2563077/pexels-photo-2563077.jpeg?auto=compress&cs=tinysrgb&w=400"
+              ],
+              "price": 100,
+              "rating": "4.6"
+            },
+            "name": "shoe_3",
+            "purchasable": {
+              "settings": []
+            },
+            "stackable": false,
+            "sub_inventory": {
+              "is_sub_inventory": false
+            },
+            "tags": [
+              "basketball"
+            ],
+            "tradable": false,
+            "ttl": 0
+          },
+          {
+            "class_name": "shoes",
+            "consumable": null,
+            "container": null,
+            "description": "Responsive cushioning for long runs",
+            "display_name": "React Infinity",
+            "metadata": {
+              "images": [
+                "https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=400"
+              ],
+              "price": 160,
+              "rating": "4.7"
+            },
+            "name": "shoe_2",
+            "purchasable": {
+              "settings": []
+            },
+            "stackable": false,
+            "sub_inventory": {
+              "is_sub_inventory": false
+            },
+            "tags": [
+              "running"
+            ],
+            "tradable": false,
+            "ttl": 0
+          },
+          {
+            "class_name": "shoes",
+            "consumable": null,
+            "container": null,
+            "description": "Classic basketball shoe with timeless style",
+            "display_name": "Air Force 1",
+            "metadata": {
+              "images": [
+                "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=400"
+              ],
+              "price": 110,
+              "rating": 4.9
+            },
+            "name": "shoe_0",
+            "purchasable": {
+              "settings": []
+            },
+            "stackable": false,
+            "sub_inventory": {
+              "is_sub_inventory": false
+            },
+            "tags": [
+              "basketball"
+            ],
+            "tradable": false,
+            "ttl": 0
+          },
+          {
+            "class_name": "shoes",
+            "consumable": null,
+            "container": null,
+            "description": "Comfortable running shoe with Max Air unit",
+            "display_name": "Air Max 270",
+            "metadata": {
+              "images": [
+                "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=400"
+              ],
+              "price": 150,
+              "rating": "4.8"
+            },
+            "name": "shoe_1",
+            "purchasable": {
+              "settings": []
+            },
+            "stackable": false,
+            "sub_inventory": {
+              "is_sub_inventory": false
+            },
+            "tags": [
+              "running"
+            ],
+            "tradable": false,
+            "ttl": 0
+          }
+        ],
+        "currencies": [
+          {
+            "display_name": "usd",
+            "name": "usd"
+          }
+        ],
+        "currency_conversions": [],
+        "discounts": [],
+        "drop_tables": [],
+        "inventory_settings": {
+          "default_grant": {
+            "currencies": {},
+            "currencies_64": {},
+            "items": {}
+          }
+        },
+        "quest_callback_currencies": [],
+        "quest_callback_items": []
+      },
+      "version": "v1.0.0",
+      "exported_at": "1757449396"
+    },
+    {
+      "id": "profiles",
+      "data": {
+        "keys": [
+          {
+            "meta": [],
+            "name": "address",
+            "required": true,
+            "searchable_column": "",
+            "searchable_type": "NOT_SEARCHABLE",
+            "type": "text",
+            "validations": {
+              "max": 0,
+              "max_length": 200,
+              "min": 0,
+              "min_length": 1,
+              "pattern": "^[\\x20-\\x7E]+$",
+              "values": []
+            },
+            "visibility": "private",
+            "visibility_group": ""
+          },
+          {
+            "meta": [],
+            "name": "first_name",
+            "required": false,
+            "searchable_column": "",
+            "searchable_type": "NOT_SEARCHABLE",
+            "type": "text",
+            "validations": {
+              "max": 0,
+              "max_length": 100,
+              "min": 0,
+              "min_length": 1,
+              "pattern": "^[\\x20-\\x7E]+$",
+              "values": []
+            },
+            "visibility": "public",
+            "visibility_group": ""
+          },
+          {
+            "meta": [],
+            "name": "last_name",
+            "required": false,
+            "searchable_column": "",
+            "searchable_type": "NOT_SEARCHABLE",
+            "type": "text",
+            "validations": {
+              "max": 0,
+              "max_length": 100,
+              "min": 0,
+              "min_length": 1,
+              "pattern": "^[\\x20-\\x7E]+$",
+              "values": []
+            },
+            "visibility": "private",
+            "visibility_group": ""
+          }
+        ]
+      },
+      "version": "v1.0.0",
+      "exported_at": "1757449396"
+    },
+    {
+      "id": "storage",
+      "data": {
+        "keys": [
+          {
+            "access_type": "private",
+            "is_prefix_key": false,
+            "key": "cart",
+            "schema": {
+              "properties": {}
+            },
+            "scope": "external",
+            "storage_type": "json",
+            "strict_array_validation": false
+          }
+        ]
+      },
+      "version": "v1.0.0",
+      "exported_at": "1757449396"
+    }
+  ],
+  "applied_configuration": "{\"version\":\"v1\",\"id\":\"xsn045r1\",\"name\":\"my-dev-cluster\",\"environment\":\"DEVELOPMENT\",\"service_definitions\":[{\"id\":\"auth\",\"language\":\"go\",\"version\":\"v1.0.0\",\"author_id\":\"snapser\",\"category\":\"SNAPSER\",\"subcategory\":\"SERVICE\",\"data_dependencies\":[{\"type\":\"POSTGRES\",\"postgres\":{\"database\":\"auth\"}},{\"type\":\"POSTGRES\",\"postgres\":{\"database\":\"auth_settings\"}},{\"type\":\"REDIS\",\"redis\":{}}]},{\"id\":\"inventory\",\"language\":\"go\",\"version\":\"v1.0.0\",\"author_id\":\"snapser\",\"category\":\"SNAPSER\",\"subcategory\":\"SERVICE\",\"data_dependencies\":[{\"type\":\"POSTGRES\",\"postgres\":{\"database\":\"inventory_settings\"}},{\"type\":\"REDIS\",\"redis\":{}},{\"type\":\"COUCHBASE\",\"couchbase\":{}}]},{\"id\":\"profiles\",\"language\":\"go\",\"version\":\"v1.0.0\",\"author_id\":\"snapser\",\"category\":\"SNAPSER\",\"subcategory\":\"SERVICE\",\"data_dependencies\":[{\"type\":\"POSTGRES\",\"postgres\":{\"database\":\"profiles\"}},{\"type\":\"POSTGRES\",\"postgres\":{\"database\":\"profiles_settings\"}},{\"type\":\"REDIS\",\"redis\":{}}]},{\"id\":\"storage\",\"language\":\"go\",\"version\":\"v1.0.0\",\"author_id\":\"snapser\",\"category\":\"SNAPSER\",\"subcategory\":\"SERVICE\",\"data_dependencies\":[{\"type\":\"POSTGRES\",\"postgres\":{\"database\":\"storage_settings\"}},{\"type\":\"COUCHBASE\",\"couchbase\":{}}]}],\"settings\":[{\"id\":\"auth\",\"data\":{\"dev\":{\"anon\":{\"enabled\":true},\"api_keys\":[],\"app_auth\":null,\"app_verify\":null,\"apple\":null,\"disable_user_creation\":false,\"discord\":null,\"email\":null,\"email_password\":null,\"epic\":null,\"facebook\":null,\"fixed_rate_limiter_settings\":[{\"allow_list\":[],\"deny_list\":[],\"duration_in_seconds\":60,\"limit\":5,\"lockout_duration_in_seconds\":60,\"type\":\"email_login\"},{\"allow_list\":[],\"deny_list\":[],\"duration_in_seconds\":60,\"limit\":5,\"lockout_duration_in_seconds\":60,\"type\":\"email_verification\"},{\"allow_list\":[],\"deny_list\":[],\"duration_in_seconds\":60,\"limit\":5,\"lockout_duration_in_seconds\":60,\"type\":\"account_recovery\"}],\"google\":null,\"password\":null,\"session_inactivity_timeout\":604800,\"session_token_validity\":2592000,\"single_session_per_user\":false,\"steam\":null,\"user_auth_restrictions\":[],\"username_password\":{\"enabled\":true,\"password_regex\":\"^[\\\\s\\\\S]{5,64}$\"},\"x\":null,\"xbox\":null},\"email_templates\":[],\"prod\":{\"anon\":null,\"api_keys\":[],\"app_auth\":null,\"app_verify\":null,\"apple\":null,\"disable_user_creation\":false,\"discord\":null,\"email\":null,\"email_password\":null,\"epic\":null,\"facebook\":null,\"fixed_rate_limiter_settings\":[{\"allow_list\":[],\"deny_list\":[],\"duration_in_seconds\":60,\"limit\":5,\"lockout_duration_in_seconds\":60,\"type\":\"email_login\"},{\"allow_list\":[],\"deny_list\":[],\"duration_in_seconds\":60,\"limit\":5,\"lockout_duration_in_seconds\":60,\"type\":\"email_verification\"},{\"allow_list\":[],\"deny_list\":[],\"duration_in_seconds\":60,\"limit\":5,\"lockout_duration_in_seconds\":60,\"type\":\"account_recovery\"}],\"google\":null,\"password\":null,\"session_inactivity_timeout\":604800,\"session_token_validity\":2592000,\"single_session_per_user\":false,\"steam\":null,\"user_auth_restrictions\":[],\"username_password\":null,\"x\":null,\"xbox\":null},\"stage\":{\"anon\":null,\"api_keys\":[],\"app_auth\":null,\"app_verify\":null,\"apple\":null,\"disable_user_creation\":false,\"discord\":null,\"email\":null,\"email_password\":null,\"epic\":null,\"facebook\":null,\"fixed_rate_limiter_settings\":[{\"allow_list\":[],\"deny_list\":[],\"duration_in_seconds\":60,\"limit\":5,\"lockout_duration_in_seconds\":60,\"type\":\"email_login\"},{\"allow_list\":[],\"deny_list\":[],\"duration_in_seconds\":60,\"limit\":5,\"lockout_duration_in_seconds\":60,\"type\":\"email_verification\"},{\"allow_list\":[],\"deny_list\":[],\"duration_in_seconds\":60,\"limit\":5,\"lockout_duration_in_seconds\":60,\"type\":\"account_recovery\"}],\"google\":null,\"password\":null,\"session_inactivity_timeout\":604800,\"session_token_validity\":2592000,\"single_session_per_user\":false,\"steam\":null,\"user_auth_restrictions\":[],\"username_password\":null,\"x\":null,\"xbox\":null}},\"version\":\"v1.0.0\",\"exported_at\":\"1757449396\"},{\"id\":\"inventory\",\"data\":{\"catalog_items\":[{\"class_name\":\"shoes\",\"consumable\":null,\"container\":null,\"description\":\"Iconic silhouette with premium materials\",\"display_name\":\"Dunk Low\",\"metadata\":{\"images\":[\"https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=400\"],\"price\":100,\"rating\":\"4.9\"},\"name\":\"shoe_5\",\"purchasable\":{\"settings\":[]},\"stackable\":false,\"sub_inventory\":{\"is_sub_inventory\":false},\"tags\":[\"basketball\"],\"tradable\":false,\"ttl\":0},{\"class_name\":\"shoes\",\"consumable\":null,\"container\":null,\"description\":\"Reliable running companion with Zoom Air\",\"display_name\":\"Zoom Pegasus\",\"metadata\":{\"images\":[\"https://images.pexels.com/photos/1598508/pexels-photo-1598508.jpeg?auto=compress&cs=tinysrgb&w=400\"],\"price\":120,\"rating\":\"4.8\"},\"name\":\"shoe_4\",\"purchasable\":{\"settings\":[]},\"stackable\":false,\"sub_inventory\":{\"is_sub_inventory\":false},\"tags\":[\"running\"],\"tradable\":false,\"ttl\":0},{\"class_name\":\"shoes\",\"consumable\":null,\"container\":null,\"description\":\"Vintage basketball style meets modern comfort\",\"display_name\":\"Blazer Mid\",\"metadata\":{\"images\":[\"https://images.pexels.com/photos/2563077/pexels-photo-2563077.jpeg?auto=compress&cs=tinysrgb&w=400\"],\"price\":100,\"rating\":\"4.6\"},\"name\":\"shoe_3\",\"purchasable\":{\"settings\":[]},\"stackable\":false,\"sub_inventory\":{\"is_sub_inventory\":false},\"tags\":[\"basketball\"],\"tradable\":false,\"ttl\":0},{\"class_name\":\"shoes\",\"consumable\":null,\"container\":null,\"description\":\"Responsive cushioning for long runs\",\"display_name\":\"React Infinity\",\"metadata\":{\"images\":[\"https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=400\"],\"price\":160,\"rating\":\"4.7\"},\"name\":\"shoe_2\",\"purchasable\":{\"settings\":[]},\"stackable\":false,\"sub_inventory\":{\"is_sub_inventory\":false},\"tags\":[\"running\"],\"tradable\":false,\"ttl\":0},{\"class_name\":\"shoes\",\"consumable\":null,\"container\":null,\"description\":\"Classic basketball shoe with timeless style\",\"display_name\":\"Air Force 1\",\"metadata\":{\"images\":[\"https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=400\"],\"price\":110,\"rating\":4.9},\"name\":\"shoe_0\",\"purchasable\":{\"settings\":[]},\"stackable\":false,\"sub_inventory\":{\"is_sub_inventory\":false},\"tags\":[\"basketball\"],\"tradable\":false,\"ttl\":0},{\"class_name\":\"shoes\",\"consumable\":null,\"container\":null,\"description\":\"Comfortable running shoe with Max Air unit\",\"display_name\":\"Air Max 270\",\"metadata\":{\"images\":[\"https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=400\"],\"price\":150,\"rating\":\"4.8\"},\"name\":\"shoe_1\",\"purchasable\":{\"settings\":[]},\"stackable\":false,\"sub_inventory\":{\"is_sub_inventory\":false},\"tags\":[\"running\"],\"tradable\":false,\"ttl\":0}],\"currencies\":[{\"display_name\":\"usd\",\"name\":\"usd\"}],\"currency_conversions\":[],\"discounts\":[],\"drop_tables\":[],\"inventory_settings\":{\"default_grant\":{\"currencies\":{},\"currencies_64\":{},\"items\":{}}},\"quest_callback_currencies\":[],\"quest_callback_items\":[]},\"version\":\"v1.0.0\",\"exported_at\":\"1757449396\"},{\"id\":\"profiles\",\"data\":{\"keys\":[{\"meta\":[],\"name\":\"address\",\"required\":true,\"searchable_column\":\"\",\"searchable_type\":\"NOT_SEARCHABLE\",\"type\":\"text\",\"validations\":{\"max\":0,\"max_length\":200,\"min\":0,\"min_length\":1,\"pattern\":\"^[\\\\x20-\\\\x7E]+$\",\"values\":[]},\"visibility\":\"private\",\"visibility_group\":\"\"},{\"meta\":[],\"name\":\"first_name\",\"required\":false,\"searchable_column\":\"\",\"searchable_type\":\"NOT_SEARCHABLE\",\"type\":\"text\",\"validations\":{\"max\":0,\"max_length\":100,\"min\":0,\"min_length\":1,\"pattern\":\"^[\\\\x20-\\\\x7E]+$\",\"values\":[]},\"visibility\":\"public\",\"visibility_group\":\"\"},{\"meta\":[],\"name\":\"last_name\",\"required\":false,\"searchable_column\":\"\",\"searchable_type\":\"NOT_SEARCHABLE\",\"type\":\"text\",\"validations\":{\"max\":0,\"max_length\":100,\"min\":0,\"min_length\":1,\"pattern\":\"^[\\\\x20-\\\\x7E]+$\",\"values\":[]},\"visibility\":\"private\",\"visibility_group\":\"\"}]},\"version\":\"v1.0.0\",\"exported_at\":\"1757449396\"},{\"id\":\"storage\",\"data\":{\"keys\":[{\"access_type\":\"private\",\"is_prefix_key\":false,\"key\":\"cart\",\"schema\":{\"properties\":{}},\"scope\":\"external\",\"storage_type\":\"json\",\"strict_array_validation\":false}]},\"version\":\"v1.0.0\",\"exported_at\":\"1757449396\"}]}"
+}
