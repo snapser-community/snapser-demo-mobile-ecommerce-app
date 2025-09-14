@@ -16,7 +16,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let user = SnapserManager.getCurrentUser()
-    if(user) {
+    if(user && user.id) {
       setIsAuthenticated(true);
       setUserId(user.id);
     } else {
