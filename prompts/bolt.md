@@ -1,4 +1,4 @@
-# Project: AirBnb
+# Project: Sneakr
 
 **Goal:** Build a simple, e-commerce app to sell shoes. Think Nike mobile app to sell shoes.
 **Scope:** Expo mobile app. No real backend—wire all data calls to typed stubs in `SnapserManager.ts`.
